@@ -1,6 +1,17 @@
+# Python cache files
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-cookies.txt
-.env
-.vscode/
+# Build and packaging directories
+*.egg-info/
+build/
+dist/
+eggs/
+.eggs/
+
+# Virtual environments (if you decide to use one later)
+venv/
+env/
+.venv/
