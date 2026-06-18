@@ -17,3 +17,6 @@ dependencies = [
 
 [project.scripts]
 yt-toolkit = "yt_toolkit.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["yt_toolkit*"]
