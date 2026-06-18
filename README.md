@@ -8,7 +8,26 @@
 [![Rich](https://img.shields.io/badge/UI-Rich-8A2BE2?style=for-the-badge&logo=python&logoColor=white)](https://rich.readthedocs.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-**[📖 Philosophy](https://www.google.com/search?q=%23-the-philosophy)** | **[⚡ Features](https://www.google.com/search?q=%23-deep-dive-features)** | **[🚀 Installation](https://www.google.com/search?q=%23-comprehensive-installation)** | **[💻 Usage Guide](https://www.google.com/search?q=%23-advanced-usage-guide)** | **[🚑 Troubleshooting](https://www.google.com/search?q=%23-troubleshooting--faq)** | **[🏗️ Architecture](https://www.google.com/search?q=%23-project-architecture)** | **[🤝 Contributing](https://www.google.com/search?q=%23-contributing)**
+**[📖 Philosophy](#-the-philosophy)** | **[⚡ Features](#-deep-dive-features)** | **[🚀 Installation](#-comprehensive-installation)** | **[💻 Usage Guide](#-advanced-usage-guide)** | **[🚑 Troubleshooting](#-troubleshooting--faq)** | **[🏗️ Architecture](#-project-architecture)** | **[🤝 Contributing](#-contributing)**
+
+## ✨ Features
+
+• CLI Commands: **8+**  
+• Modules: **8**  
+• Tests: **10+**  
+• Python: **3.8+**  
+• License: **MIT**
+
+---
+
+## ⚡ Quick Start
+
+```bash
+pip install -e .
+yt-toolkit doctor
+yt-toolkit mp3 "URL"
+yt-toolkit playlist "URL"
+```
 
 ---
 
@@ -96,28 +115,36 @@ Ensure you have a modern version of Python installed.
 
 `yt-dlp` requires FFmpeg to merge video/audio streams and convert files to MP3.
 
-* **Windows:** Use [Scoop](https://www.google.com/search?q=https://scoop.sh/) (`scoop install ffmpeg`) or [Chocolatey](https://www.google.com/search?q=https://chocolatey.org/) (`choco install ffmpeg`).
-* **macOS:** Use [Homebrew](https://www.google.com/search?q=https://brew.sh/) (`brew install ffmpeg`).
+* **Windows:** Use [Scoop](https://scoop.sh/) (`scoop install ffmpeg`) or [Chocolatey](https://chocolatey.org/) (`choco install ffmpeg`).
+* **macOS:** Use [Homebrew](https://brew.sh/) (`brew install ffmpeg`).
 * **Linux (Debian/Ubuntu):** Run `sudo apt update && sudo apt install ffmpeg`.
 
 #### 3. Node.js (Optional but Highly Recommended)
 
 YouTube has recently implemented advanced anti-bot protections that require executing JavaScript challenges. Installing Node.js allows `yt-dlp` to solve these challenges natively in the background.
 
-* Download from [NodeJS.org](https://www.google.com/search?q=https://nodejs.org/) or install via your package manager.
+* Download from [NodeJS.org](https://nodejs.org/) or install via your package manager.
 
 ### Phase 2: Package Setup
 
 Install the package locally in editable mode. This builds the CLI and registers the `yt-toolkit` command globally on your machine.
 
 1. Clone the repository to your local machine:
-`git clone https://github.com/rsayyed591/youtube-toolkit.git`
+```bash
+git clone https://github.com/rsayyed591/youtube-toolkit.git
+```
 2. Navigate into the project directory:
-`cd youtube-toolkit`
+```bash
+cd youtube-toolkit
+```
 3. Install the package and dependencies:
-`pip install -e .`
+```bash
+pip install -e .
+```
 4. Verify the installation and system health:
-`yt-toolkit doctor`
+```bash
+yt-toolkit doctor
+```
 
 ---
 
@@ -128,42 +155,60 @@ Once installed, `yt-toolkit` acts as a global command on your system. Here are d
 ### ⚙️ System & Configuration
 
 **Check System Health:**
-`yt-toolkit doctor`
+```bash
+yt-toolkit doctor
+```
 *Use this if downloads are suddenly failing. It checks for FFmpeg presence, internet connection, and folder permissions.*
 
 **Configure Preferences:**
-`yt-toolkit config`
+```bash
+yt-toolkit config
+```
 *Launches an interactive prompt. By default, downloads go to your user `Downloads` folder at `320kbps`. This command saves a persistent `config.json` file to your home directory so you never have to type paths again.*
 
 **Check Versions:**
-`yt-toolkit version`
+```bash
+yt-toolkit version
+```
 
 ### 📥 Downloading Media
 
 **Download a Video (Best Quality):**
-`yt-toolkit video "https://youtube.com/watch?v=YOUR_ID"`
+```bash
+yt-toolkit video "https://youtube.com/watch?v=YOUR_ID"
+```
 *Downloads the highest quality video and audio streams separately, then uses FFmpeg to multiplex them into a single, seamless MP4 file.*
 
 **Download Audio (MP3):**
-`yt-toolkit mp3 "https://youtube.com/watch?v=YOUR_ID"`
+```bash
+yt-toolkit mp3 "https://youtube.com/watch?v=YOUR_ID"
+```
 *Downloads the best audio stream, processes it through FFmpeg, extracts a 320kbps MP3, and automatically deletes the original `.webm` or `.m4a` file.*
 
 **Download an Entire Playlist:**
-`yt-toolkit playlist "https://youtube.com/playlist?list=YOUR_ID"`
+```bash
+yt-toolkit playlist "https://youtube.com/playlist?list=YOUR_ID"
+```
 *Sequentially downloads every video in a playlist, extracts the audio, and saves them with numerical prefixes (e.g., `0001 - First Song.mp3`, `0002 - Second Song.mp3`) to preserve track order.*
 
 ### 🗄️ Library Management
 
 **Sanitize Filenames:**
-`yt-toolkit clean "C:\Users\Name\Music\MyPlaylist"`
+```bash
+yt-toolkit clean "C:\Users\Name\Music\MyPlaylist"
+```
 *Removes all leading numbers and hyphens. `005 - Bohemian Rhapsody.mp3` becomes `Bohemian Rhapsody.mp3`.*
 
 **Identify Duplicate Audio Files:**
-`yt-toolkit find-duplicates "C:\Users\Name\Music"`
+```bash
+yt-toolkit find-duplicates "C:\Users\Name\Music"
+```
 *Scans the provided directory, hashes every MP3 file, and prints a detailed report of any identical files found. This is a read-only command.*
 
 **Eradicate Duplicate Audio Files:**
-`yt-toolkit remove-duplicates "C:\Users\Name\Music"`
+```bash
+yt-toolkit remove-duplicates "C:\Users\Name\Music"
+```
 *Performs the cryptographic scan, keeps the first instance of a file, and permanently deletes all identical copies. Use with caution!*
 
 ---
@@ -173,13 +218,13 @@ Once installed, `yt-toolkit` acts as a global command on your system. Here are d
 When you run `yt-toolkit config`, the application generates a lightweight JSON file in your system's home directory (e.g., `~/.config.json` or `C:\Users\Name\.config.json`).
 
 You can edit this file directly if preferred:
-
+```json
 {
 "download_folder": "D:\Media\YouTube Music",
 "quality": "320",
 "cookies_path": ""
 }
-
+```
 ---
 
 ## 🚑 Troubleshooting & FAQ
@@ -269,10 +314,9 @@ The project features a fully automated CI/CD pipeline via **GitHub Actions**. Ev
 
 Future features planned for upcoming releases:
 
-* [ ] Spotify playlist parsing (Convert Spotify URLs to YouTube search queries automatically).
-* [ ] Automated ID3 Tagging (Embed album artwork and artist metadata into downloaded MP3s).
-* [ ] Concurrent asynchronous downloading for massive playlists.
-* [ ] GUI overlay utilizing `CustomTkinter`.
+- [ ] Spotify support
+- [ ] GUI
+- [ ] Async downloading
 
 ---
 
@@ -281,7 +325,7 @@ Future features planned for upcoming releases:
 **Rehan Sayyed**
 
 * **GitHub:** [@rsayyed591](https://github.com/rsayyed591)
-* **Email:** [rehansayyed591@gmail.com](https://www.google.com/search?q=mailto%3Arehansayyed591%40gmail.com)
+* **Email:** [rehansayyed591@gmail.com](mailto:rehansayyed591@gmail.com)
 
 ---
 
