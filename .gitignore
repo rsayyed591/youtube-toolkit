@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+cookies.txt
+.env
+.vscode/
