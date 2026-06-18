@@ -1,21 +1,30 @@
-CHANGELOG.md
+# Changelog
 
-v1.0.0
+## [2.0.0] - 2026-06-19
 
-First release
+### Added
+- Professional Typer CLI
+- Rich terminal UI
+- Configuration system
+- System diagnostics
+- Automated tests
+- GitHub Actions
+
+### Changed
+- Complete rewrite into a modular package
+- Improved downloader architecture
+- Modernized project structure
+
+### Removed
+- Legacy standalone scripts
 
 ---
 
-v2.0.0
+## [1.0.0] - 2026-06-17
 
-Complete rewrite
-
-Typer CLI
-
-Rich
-
-Tests
-
-Config
-
-Package structure
+### Added
+- Interactive downloader
+- MP3 downloader
+- Playlist downloader
+- Duplicate detection
+- Filename cleaner
