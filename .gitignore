@@ -11,7 +11,22 @@ dist/
 eggs/
 .eggs/
 
-# Virtual environments (if you decide to use one later)
+# Virtual environments
 venv/
 env/
 .venv/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Testing cache
+.pytest_cache/
+
+# Project Specific (CRITICAL)
+cookies.txt
+Downloads/
+config.json
+.config.json
