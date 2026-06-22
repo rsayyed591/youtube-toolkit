@@ -17,7 +17,13 @@ def run_diagnostics():
         console.print("[red]✗[/red] FFmpeg not found! Audio extraction will fail.")
         issues += 1
 
-    # 2. Check Internet
+    # 2. Check Node.js (Anti-Bot Bypass)
+    if shutil.which("node"):
+        console.print("[green]✓[/green] Node.js installed (Anti-bot bypass active)")
+    else:
+        console.print("[yellow]![/yellow] Node.js missing! (YouTube may block your downloads. Install from nodejs.org)")
+
+    # 3. Check Internet
     try:
         # Pinging a standard domain to avoid Python IP/SSL mismatch errors
         urllib.request.urlopen("https://www.google.com", timeout=3)
@@ -26,7 +32,7 @@ def run_diagnostics():
         console.print(f"[red]✗[/red] No internet connection detected")
         issues += 1
 
-    # 3. Check Config & Permissions
+    # 4. Check Config & Permissions
     config = load_config()
     folder = config.get("download_folder", "")
     
@@ -44,3 +50,5 @@ def run_diagnostics():
         console.print("[bold green]System is healthy! You are ready to download.[/bold green]")
     else:
         console.print(f"[bold red]Found {issues} issue(s) that need your attention.[/bold red]")
+
+    
