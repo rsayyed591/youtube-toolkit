@@ -1,4 +1,7 @@
 yt-dlp
+yt-dlp-ejs
 typer[all]
-pytest
+rich
 mutagen
+pytest
+pytest-mock
