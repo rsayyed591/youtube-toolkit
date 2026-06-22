@@ -148,6 +148,131 @@ yt-toolkit doctor
 
 ---
 
+## 🛡️ Bypassing YouTube's Anti-Bot Protections
+
+YouTube continuously updates its anti-abuse systems to prevent automated downloads. Depending on your region, account status, or the type of content you're accessing, you may encounter errors such as:
+
+```text
+HTTP Error 403: Forbidden
+HTTP Error 429: Too Many Requests
+Sign in to confirm you're not a bot
+No supported JavaScript runtime could be found
+Signature extraction failed
+```
+
+`yt-toolkit` is designed to work around these protections using the methods below.
+
+---
+
+### 1️⃣ JavaScript Challenge Support (Recommended)
+
+Some YouTube requests require JavaScript execution before a download is allowed.
+
+If you see messages similar to:
+
+```text
+WARNING: No supported JavaScript runtime could be found
+Signature extraction failed
+```
+
+install **Node.js**.
+
+**Download:** https://nodejs.org/
+
+Once Node.js is installed:
+
+* `yt-toolkit` automatically detects it.
+* The bundled `yt-dlp-ejs` extractor executes in the background.
+* JavaScript challenges are solved transparently.
+* No additional configuration is required.
+
+> **Recommended:** Keep Node.js installed even if downloads currently work. It significantly improves compatibility with YouTube's latest protections.
+
+---
+
+### 2️⃣ Authenticate with Your YouTube Cookies
+
+For age-restricted videos, private playlists, music mixes, or if YouTube displays:
+
+```text
+Sign in to confirm you're not a bot
+```
+
+provide your browser's authentication cookies.
+
+#### Step 1 — Install a Cookies Extension
+
+Install **Get cookies.txt LOCALLY** for your browser.
+
+#### Step 2 — Export Cookies
+
+1. Sign in to your YouTube account.
+2. Open YouTube in your browser.
+3. Click **Export** from the extension.
+4. Save the exported file as:
+
+```text
+cookies.txt
+```
+
+inside your project folder.
+
+Example:
+
+```text
+youtube-toolkit/
+├── cookies.txt
+├── pyproject.toml
+├── README.md
+└── yt_toolkit/
+```
+
+#### Step 3 — Configure the Toolkit
+
+Run:
+
+```bash
+yt-toolkit config
+```
+
+Set the **Cookies Path** to your exported file.
+
+Example:
+
+```text
+C:\Users\Rehan\youtube-toolkit\cookies.txt
+```
+
+or
+
+```text
+/home/rehan/youtube-toolkit/cookies.txt
+```
+
+Once configured, `yt-toolkit` automatically passes your authenticated session to `yt-dlp`, allowing downloads that normally require a logged-in YouTube account.
+
+---
+
+## 💡 Best Compatibility
+
+For the most reliable downloading experience, install **all three** dependencies:
+
+| Dependency      | Purpose                              | Required      |
+| --------------- | ------------------------------------ | ------------- |
+| **Python 3.8+** | Runs the CLI                         | ✅ Yes         |
+| **FFmpeg**      | Audio/video conversion and merging   | ✅ Yes         |
+| **Node.js**     | Solves YouTube JavaScript challenges | ⭐ Recommended |
+
+If downloads suddenly stop working after a YouTube update:
+
+1. Update `yt-dlp`
+2. Ensure **Node.js** is installed
+3. Export a fresh `cookies.txt`
+4. Run `yt-toolkit doctor`
+5. Retry the download
+
+---
+
 ## 💻 Advanced Usage Guide
 
 Once installed, `yt-toolkit` acts as a global command on your system. Here are detailed examples of how to utilize the suite.
